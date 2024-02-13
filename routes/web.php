@@ -1,23 +1,23 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminDashboarController;
-use App\Http\Controllers\Admin\HallBookingController;
-use App\Http\Controllers\AjaxController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\MainHomeController;
-use App\Http\Controllers\member\SSlComarzController;
-use App\Http\Controllers\movie\MovieHomeController;
-use App\Http\Controllers\MovieController;
-use App\Http\Controllers\TapController;
-use App\Http\Controllers\TestController;
 use App\dynamic_route;
-use App\Http\Controllers\Admin\MemberController;
-use App\Http\Controllers\Admin\ServiceController;
-use App\Http\Controllers\user_auth\LoginController;
-use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TapController;
+use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\MovieController;
+use App\Http\Controllers\MainHomeController;
+use App\Http\Controllers\Admin\MemberController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\movie\MovieHomeController;
+use App\Http\Controllers\user_auth\LoginController;
+use App\Http\Controllers\member\SSlComarzController;
+use App\Http\Controllers\Admin\HallBookingController;
+use App\Http\Controllers\Admin\AdminDashboarController;
 
 Route::middleware([])->group(function () {
     Route::get('/', function () {
@@ -30,7 +30,7 @@ Route::middleware([])->group(function () {
         Artisan::call('config:clear');
         Artisan::call('config:cache');
         Artisan::call('view:clear');
-    return 'Clear Cache';
+        return 'Clear Cache';
     });
 
     Route::group(['prefix' => 'aoc_admin'], function () {
@@ -66,10 +66,10 @@ Route::middleware([])->group(function () {
     Route::get('/seat_booking/{id}', [MovieHomeController::class, 'seat_booking'])->name('seat_booking');
 
     Route::post('/admin_logout', [AdminDashboarController::class, 'admin_logout'])->name('admin_logout');
-   Route::post('/ceo_image_upload', [AdminDashboarController::class, 'ceo_image_upload'])->name('ceo_image_upload');
+    Route::post('/ceo_image_upload', [AdminDashboarController::class, 'ceo_image_upload'])->name('ceo_image_upload');
 
     Route::middleware(['auth', 'routeprifix'])->prefix('{roleBased}')->group(function () {
-        Route::group(['namespace' => 'App\Http\Controllers\Admin','as' => 'admin.', 'middleware' => ['auth', 'admin']], function () {
+        Route::group(['namespace' => 'App\Http\Controllers\Admin', 'as' => 'admin.', 'middleware' => ['auth', 'admin']], function () {
             foreach (dynamic_route::where('route_status', 1)->get() as $value) {
                 if ($value->method == 'get') {
                     Route::get($value->url . '/' . $value->parameter, $value->controller_action . '@' . $value->function_name)->name($value->url);
@@ -80,13 +80,13 @@ Route::middleware([])->group(function () {
         });
         Route::get('/generate-pdf', [ServiceController::class, 'generatePDF'])->name('pdf-show');
         // Route::get('/admin.member/payment_receipt_print/{id}', [MemberController::class, 'payment_receipt_print'])->name('admin.member/payment_receipt_print');
-        
+
     });
     Route::get('/check_date', [HallBookingController::class, 'check_date'])->name('check_date');
     Route::get('/edit_check_date', [HallBookingController::class, 'edit_check_date'])->name('edit_check_date');
 
 
-//all user route
+    //all user route
     Route::get('/user/login', [LoginController::class, 'showLoginForm'])->name('user.login');
     Route::post('/user/login', [LoginController::class, 'login'])->name('user.login');
     Route::post('/user/logout', [LoginController::class, 'logout'])->name('user.logout');
@@ -125,11 +125,3 @@ Route::post('/upload_log', [\App\Http\Controllers\API\AttendenceController::clas
 Route::post('/uploadEmpList', [\App\Http\Controllers\API\AttendenceController::class, 'uploadEmpList']);
 Route::post('/syncid', [\App\Http\Controllers\API\AttendenceController::class, 'syncid']);
 Route::post('/UpdateStatus', [\App\Http\Controllers\API\AttendenceController::class, 'UpdateStatus']);
-
-
-
-
-
-
-
-
