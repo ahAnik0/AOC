@@ -25,7 +25,7 @@ class HallBookingController extends Controller
     function create_bokking_form(Request $request)
     {
         $selectedDate = $request->query('selectedDate');
-        
+
         return view('backend.hall_booking.create_booking.new_booking', compact('selectedDate'));
     }
 
@@ -140,18 +140,17 @@ class HallBookingController extends Controller
 
     public function store_charge_event(Request $request)
     {
-        
+
         $request->validate([
             'hall_rent' => 'required',
         ]);
         $charge = AdditionalCharge::where('booking_id', $request->booking_id)->first();
-        
-        if(!empty($charge)){
 
-        AdditionalCharge::find($request->chrg_id)->update($request->all());
-        return redirect()->route('admin.hall_booking/index')->with('success', 'Done');
+        if (!empty($charge)) {
 
-        }else{
+            AdditionalCharge::find($request->chrg_id)->update($request->all());
+            return redirect()->route('admin.hall_booking/index')->with('success', 'Done');
+        } else {
             AdditionalCharge::create($request->all());
             return redirect()->route('admin.hall_booking/index')->with('success', 'Done');
         }
@@ -162,12 +161,12 @@ class HallBookingController extends Controller
         $mm = HallBookingModel::find($id);
         $member = MemberModel::find($mm->member_id);
         $charge = AdditionalCharge::where('booking_id', $id)->first();
-        if(!empty($charge)){
+        if (!empty($charge)) {
 
-            return view('backend.hall_booking.edit_booking.print_charge_event', compact('member','charge'));
-        }else{
+            return view('backend.hall_booking.edit_booking.print_charge_event', compact('member', 'charge'));
+        } else {
 
-            return redirect()->back()->with('error', 'Please Enter Additional Charge'); 
+            return redirect()->back()->with('error', 'Please Enter Additional Charge');
         }
     }
     public function delete_event($id)
@@ -204,7 +203,7 @@ class HallBookingController extends Controller
 
     function calender_view()
     {
-        
+
         return view('backend.hall_booking.calendar.calendar');
     }
 
@@ -221,10 +220,10 @@ class HallBookingController extends Controller
                     'shift'  => $booking->shift
                 ];
             });
-    
+
             return response()->json($data);
         }
-    
+
 
         return view('backend.hall_booking.calendar.calendar');
     }
@@ -275,12 +274,8 @@ class HallBookingController extends Controller
                     ->where('shift', $request->shift)
                     ->whereDate('date', $request->date)
                     ->first();
-
-                // Your logic with $date here
             } catch (\Exception $e) {
-                // Log the error or handle it in an appropriate way
                 Log::error("Database query failed: " . $e->getMessage());
-                // You might want to return a response or throw an exception here
             }
 
             if ($date) {
