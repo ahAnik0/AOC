@@ -45,7 +45,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\XFrameOptionsMiddleware::class,
             SecurityHeader::class,
             // \App\Http\Middleware\CspMiddleware::class,
-            \Spatie\Csp\AddCspHeaders::class,
+            // \Spatie\Csp\AddCspHeaders::class,
             \App\Http\Middleware\ReferrerPolicyMiddleware::class,
             \App\Http\Middleware\DisableTraceMethod::class,
         ],
