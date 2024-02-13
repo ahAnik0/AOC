@@ -9,7 +9,10 @@ class ReferrerPolicyMiddleware
     public function handle($request, Closure $next)
     {
         $response = $next($request);
-        $response->header('Referrer-Policy', 'strict-origin');
+
+        // Set the Referrer-Policy header to "no-referrer"
+        $response->header('Referrer-Policy', 'no-referrer');
+
         return $response;
     }
 }

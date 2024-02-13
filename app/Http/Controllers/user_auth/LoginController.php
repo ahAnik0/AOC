@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\URL;
 
 class LoginController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('guest:user', ['except' => ['logout']]);
@@ -48,6 +47,6 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::guard('user')->logout();
-        return redirect('/');
+        return redirect('/user/login');
     }
 }

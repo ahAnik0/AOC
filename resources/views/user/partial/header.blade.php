@@ -24,13 +24,12 @@
                 </li>
 
                 <li class="onhover-dropdown p-0">
-                    <button
-                        onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();"
-                        class="btn btn-primary-light" type="button"><a href="login_two.html"><i
-                                data-feather="log-out"></i>Log out</a></button>
-                    <form id="logout-form" action="{{ route('user.logout') }}" method="POST" class="css4">
+                    <form id="logout-form" action="{{ route('user.logout') }}" method="POST">
                         @csrf
+
+                        <button type="submit" class="btn btn-primary-light">
+                            <i data-feather="log-out"></i>Log out
+                        </button>
                     </form>
                 </li>
             </ul>
