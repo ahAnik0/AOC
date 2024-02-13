@@ -1,4 +1,3 @@
-
 <div class="page-main-header">
     <div class="main-header-right row m-0">
         <div class="main-header-left">
@@ -20,7 +19,7 @@
         <div class="left-menu-header col">
             <ul>
                 <li>
-                    <h3 class="font-success" id="stl_1" >Army Officers Club</h3>
+                    <h3 class="font-success" id="stl_1">Army Officers Club</h3>
                 </li>
             </ul>
         </div>
@@ -97,13 +96,12 @@
                 {{--                </ul> --}}
                 {{--              </li> --}}
                 <li class="onhover-dropdown p-0">
-                    <button
-                        onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();"
-                        class="btn btn-primary-light" type="button"><a href="login_two.html"><i
-                                data-feather="log-out"></i>Log out</a></button>
-                    <form id="logout-form" action="{{ route('admin_logout') }}" method="POST" id="stl_2" >
+                    <form id="logout-form" action="{{ route('admin_logout') }}" method="POST">
                         @csrf
+
+                        <button type="submit" class="btn btn-primary-light">
+                            <i data-feather="log-out"></i>Log out
+                        </button>
                     </form>
                 </li>
             </ul>
@@ -111,4 +109,3 @@
         <div class="d-lg-none mobile-toggle pull-right w-auto"><i data-feather="more-horizontal"></i></div>
     </div>
 </div>
-
