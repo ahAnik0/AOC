@@ -131,6 +131,7 @@ class AttendenceController extends Controller
 
     function uploadEmpList(Request $request)
     {
+        
         $validator = Validator::make($request->all(), [
             'dev' => 'required',
             'badge' => 'required',
@@ -152,13 +153,13 @@ class AttendenceController extends Controller
         $count = 0;
 
         for ($i = 0; $i < $no_of_records; $i++) {
-            if ($card[$i] == '0000000000') {
-                $card[$i] = '';
-            } else {
+            // if ($card[$i] == '0000000000') {
+            //     $card[$i] = '';
+            // } else {
                 $member_card = MemberModel::select('id')->where('rfid', $card[$i])->orderBy('id', 'DESC')->first();
                 $ex_data = EmplistDeviceModel::where('devId', $device[$i])->where('badge_number', $badge[$i])->first();
                 if ($member_card) {
-                    $member = $member_card['id'];
+                   $member = $member_card['id'];
                     if ($ex_data) {
                         $ex_data->devId = $device[$i];
                         $ex_data->badge_number = $badge[$i];
@@ -210,7 +211,7 @@ class AttendenceController extends Controller
                 if ($entry_counter == True) {
                     $count++;
                 }
-            }
+            // }
         }
         return response()->json(["message" => [$count . " User Data Saved in Web"]], 201);
     }
@@ -248,7 +249,8 @@ class AttendenceController extends Controller
                 $id = $value['id'];
 
                 if (strlen($card) == 10) {
-                    $member_full_name = MemberModel::select('fullname')->find($member) ? MemberModel::find($member) : null;
+                    $member_full_name = MemberModel::select('fullname')->where('member_id_inputed',$member)->first();
+                    
                     if ($member_full_name) {
                         if ($cardA == '') {
                             $cardA = $card;
@@ -278,6 +280,7 @@ class AttendenceController extends Controller
 
     function UpdateStatus(Request $request)
     {
+ //return $request ;
         $count = 0;
         $validator = Validator::make($request->all(), [
             'status' => 'required',
@@ -288,7 +291,7 @@ class AttendenceController extends Controller
         }
 
         $status = explode(",", $request->status);
-
+	
         for ($i = 0; $i < count($status); $i++) {
             $update_member_assign_device = MemberAssignDeviceModel::find($status[$i]);
             $update_member_assign_device->status = 0;

@@ -311,7 +311,7 @@ class ReportController extends Controller
             return Datatables::of($query)
                 ->addIndexColumn()
                 ->addColumn('member', function ($data) {
-                    return $data->member ? $data->member->fullname : '';
+                    return $data->member ? $data->member->fullname : $data->member2->fullname;
                 })->addColumn('auth_date', function ($data) {
                     return Carbon::parse($data->created_at)->format('M d, Y');
                 })->addColumn('auth_time', function ($data) {

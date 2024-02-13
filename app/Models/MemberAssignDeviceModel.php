@@ -24,4 +24,8 @@ class MemberAssignDeviceModel extends Model
     {
         return $this->belongsTo(MemberModel::class,'member_id','id');
     }
+    public function member2()
+    {
+        return $this->belongsTo(MemberModel::class,'member_id','member_id_inputed');
+    }
 }

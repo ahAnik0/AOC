@@ -2,12 +2,23 @@
 @section('title', 'Book a program')
 @push('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/css/select2.css') }}">
-    <style  nonce="{{ csp_nonce() }}">
+    <style nonce="{{ csp_nonce() }}">
         .list-group {
             max-height: 300px;
             margin-bottom: 10px;
             overflow: scroll;
             -webkit-overflow-scrolling: touch;
+        }
+
+        .css_1 {
+            display: none;
+        }
+
+        .css_2 {
+            overflow: no-content;
+        }
+        .css_3{
+            margin-bottom: 10px; margin-right: 10px;
         }
     </style>
 @endpush
@@ -43,7 +54,8 @@
 
                                 <div class="form-group hidden_field">
                                     <label class="control-label required">Program Date</label>
-                                    <input class="form-control" type="date" name="date" id="program_date" value="{{ $selectedDate }}">
+                                    <input class="form-control" type="date" name="date" id="program_date"
+                                        value="{{ $selectedDate }}">
                                     <span id="error_date" class="text-danger error_field font-weight-bold"></span>
                                 </div>
 
@@ -57,7 +69,7 @@
                                     <span id="error_shift" class="text-danger error_field"></span>
                                 </div>
 
-                                <div id="hide_section" style="display: none">
+                                <div id="hide_section css_1">
                                     <div class="col-12">
                                         <div class="mb-3">
                                             <label class="col-form-label required">Select member</label>
@@ -70,8 +82,8 @@
                                     <input type="hidden" id="member_id" name="member_id">
                                     <div id="member_list"></div>
 
-                                    <div class="col-md-12" style="display: none" id="member_details">
-                                        <ul class="list-group" style="overflow: no-content">
+                                    <div class="col-md-12 css_1" id="member_details">
+                                        <ul class="list-group css_2">
                                             <li class="list-group-item">Ba No: <span id="member_ba_no"></span></li>
                                             <li class="list-group-item">Member Id: <span id="member_id_inputed"></span></li>
                                             <li class="list-group-item">Member Name: <span id="member_name_show"></span>
@@ -134,11 +146,10 @@
                                     {{--                                        <span id="error_add_amount" class="text-danger error_field"></span> --}}
                                     {{--                                    </div> --}}
                                     <div class="row justify-content-center">
-                                        <button class="btn btn-primary btn-lg btn-block col-md-6" type="submit"
-                                            style="margin-bottom: 10px; margin-right: 10px;" 
+                                        <button class="btn btn-primary btn-lg btn-block col-md-6 css_3" type="submit"
                                             onclick="return confirm('Are you Sure to Save !!')"
                                             id="form_submission_button"> Save
-                                        </button> 
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -151,9 +162,9 @@
 
 @endsection
 @push('js')
-    <script src="{{ asset('assets/backend/js/select2/select2.full.min.js') }}"  nonce="{{ csp_nonce() }}"></script>
-    <script src="{{ asset('assets/backend/js/select2/select2-custom.js') }}"  nonce="{{ csp_nonce() }}"></script>
-    <script src="{{ asset('assets/backend/js/sweetalert2.all.js') }}"  nonce="{{ csp_nonce() }}"></script>
-    <script src="{{ asset('assets/backend/js/tooltip-init.js') }}"  nonce="{{ csp_nonce() }}"></script>
+    <script src="{{ asset('assets/backend/js/select2/select2.full.min.js') }}" nonce="{{ csp_nonce() }}"></script>
+    <script src="{{ asset('assets/backend/js/select2/select2-custom.js') }}" nonce="{{ csp_nonce() }}"></script>
+    <script src="{{ asset('assets/backend/js/sweetalert2.all.js') }}" nonce="{{ csp_nonce() }}"></script>
+    <script src="{{ asset('assets/backend/js/tooltip-init.js') }}" nonce="{{ csp_nonce() }}"></script>
     @include('backend.hall_booking.create_booking.new_booking_js')
 @endpush
