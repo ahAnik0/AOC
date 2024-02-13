@@ -268,7 +268,9 @@ class HallBookingController extends Controller
     {
         $hall = $request->hall;
         $counter = 0;
+        
         foreach ($hall as $hall_data) {
+            $date = null; 
             try {
                 $date = HallBookingModel::where('hall', $hall_data)
                     ->where('shift', $request->shift)
@@ -277,12 +279,12 @@ class HallBookingController extends Controller
             } catch (\Exception $e) {
                 Log::error("Database query failed: " . $e->getMessage());
             }
-
+    
             if ($date) {
                 $counter++;
             }
         }
-
+    
         if ($counter == 0) {
             return response()->json(['status' => 'available']);
         }
