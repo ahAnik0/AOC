@@ -69,7 +69,7 @@
                                     <span id="error_shift" class="text-danger error_field"></span>
                                 </div>
 
-                                <div id="hide_section css_1">
+                                <div id="hide_section" class="css_1">
                                     <div class="col-12">
                                         <div class="mb-3">
                                             <label class="col-form-label required">Select member</label>
