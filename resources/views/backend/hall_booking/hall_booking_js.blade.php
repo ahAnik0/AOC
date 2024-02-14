@@ -134,7 +134,7 @@
         $('.yajra-datatable').DataTable().ajax.reload(null, false);
     }
 
-    // delete user
+    // Delete record
     function delete_data(id) {
         swal({
             title: 'Are you sure?',
