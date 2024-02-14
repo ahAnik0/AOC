@@ -744,6 +744,7 @@ class MemberController extends Controller
         $service_payment->credit = $request->amount;
         $service_payment->ref_id = $member_id;
         $service_payment->pay_type = $request->pay_type;
+        $service_payment->month = $request->month;
         $service_payment->chq_no = $request->chq_no;
         $service_payment->created_by = admin_id();
         $service_payment->created_user_type = 'system';
