@@ -6,12 +6,12 @@ use App\Models\MemberModel;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use App\Models\AditionalChrage;
+use App\Models\AdditionalCharge;
 use App\Models\HallBookingModel;
 use App\Models\ServingeUnitModel;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
-use App\Models\AdditionalCharge;
-use App\Models\AditionalChrage;
 use Brian2694\Toastr\Facades\Toastr;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -268,9 +268,9 @@ class HallBookingController extends Controller
     {
         $hall = $request->hall;
         $counter = 0;
-        
+
         foreach ($hall as $hall_data) {
-            $date = null; 
+            $date = null;
             try {
                 $date = HallBookingModel::where('hall', $hall_data)
                     ->where('shift', $request->shift)
@@ -279,12 +279,12 @@ class HallBookingController extends Controller
             } catch (\Exception $e) {
                 Log::error("Database query failed: " . $e->getMessage());
             }
-    
+
             if ($date) {
                 $counter++;
             }
         }
-    
+
         if ($counter == 0) {
             return response()->json(['status' => 'available']);
         }

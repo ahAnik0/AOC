@@ -1,5 +1,4 @@
-<script  nonce="{{ csp_nonce() }}">
-    // nonce="YKXiTcrg6o4DuumXQDxYRv9gHPlZng6z"
+<script nonce="{{ csp_nonce() }}">
     $(document).ready(function() {
         $('.select2').select2();
     });
@@ -95,7 +94,11 @@
                     name: 'date',
                     orderable: false
                 },
-                {data: 'hall', name: 'hall', orderable: false},
+                {
+                    data: 'hall',
+                    name: 'hall',
+                    orderable: false
+                },
                 {
                     data: 'amount',
                     name: 'amount',
@@ -116,7 +119,7 @@
                     name: 'action',
                     searchable: false,
                 },
-                
+
             ],
         });
         $('#search_form').on('submit', function(event) {
@@ -156,7 +159,7 @@
                         if (response) {
                             if (response.permission == false) {
                                 toastr.warning('you dont have that Permission',
-                                'Permission Denied');
+                                    'Permission Denied');
                             } else {
                                 toastr.success('Deleted Successful', 'Deleted');
                                 $('.yajra-datatable').DataTable().ajax.reload(null, false);

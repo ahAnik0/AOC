@@ -19,9 +19,11 @@
         }
 
         .css2 {
-            font-weight: bold;font-size: 30px;text-align: center;line-height: 40px
+            font-weight: bold;
+            font-size: 30px;
+            text-align: center;
+            line-height: 40px
         }
-
     </style>
 @endpush
 @section('content')
