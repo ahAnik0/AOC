@@ -312,17 +312,22 @@
                                                 <label class="col-form-label required">Payment Date</label>
                                                 <input type="date" name="pay_date" class="form-control input-lg" readonly value="<?php echo date('Y-m-d'); ?>"/>
                                             </div>
-
+                                            <div class="mb-3">
+                                                <label class="col-form-label ">Month</label>
+                                                <input type="text" name="month" class="form-control input-lg" >
+                                            </div>
                                             <div class="mb-3">
                                                 <label class="col-form-label required">Payment Type</label>
                                                 <select id="selectOption" name="pay_type" class="form-control input-lg">
                                                     <option value="0">Cash</option>
                                                     <option value="1">Cheque</option>
+                                                    <option value="2">Bank Reciept</option>
+                                                    <option value="3">Online Transation</option>
                                                   </select>
                                             </div>
                                             
                                             <div class="mb-3">
-                                                <label class="col-form-label ">Cheque No.</label>
+                                                <label class="col-form-label ">Details.</label>
                                                 <input type="text" name="chq_no" class="form-control input-lg" >
                                             </div>
                                             

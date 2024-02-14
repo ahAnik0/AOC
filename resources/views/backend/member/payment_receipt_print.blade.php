@@ -181,6 +181,18 @@
                             </p>
                         </td>
                     </tr>
+                    <tr class="service">
+                        <td class="tableitem">
+                            <p class="itemtext">
+                                Month: - <br>
+                            </p>
+                        </td>
+                        <td class="tableitem">
+                            <p class="itemtext">
+                               {{$request->month}} <br>
+                            </p>
+                        </td>
+                    </tr>
 
                     <tr class="service">
                         <td class="tableitem">
@@ -195,7 +207,14 @@
                                 } elseif ($request->pay_type == 1) {
                                     echo "Cheque <br>";  
                                     echo 'Cheque No:'.$request->chq_no ; 
-                                } ?> <br>
+                                } elseif($request->pay_type ==2){
+                                    echo "Bank Reciept <br>";  
+                                    echo 'Reciept No:'.$request->chq_no ;  
+                                }else{
+                                    echo "Online Transation <br>";  
+                                    echo 'Transation No:'.$request->chq_no ; 
+                                }
+                                ?> <br>
                             </p>
                         </td>
                     </tr>
