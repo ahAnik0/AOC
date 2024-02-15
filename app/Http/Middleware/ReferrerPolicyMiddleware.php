@@ -11,7 +11,7 @@ class ReferrerPolicyMiddleware
         $response = $next($request);
 
         // Set the Referrer-Policy header to "no-referrer"
-        $response->header('Referrer-Policy', 'strict-origin-when-cross-origin');
+        $response->header('Referrer-Policy', 'no-referrer');
 
         return $response;
     }
