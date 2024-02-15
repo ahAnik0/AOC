@@ -53,6 +53,13 @@
             $('#error_date').html("please select hall first then select date");
         }
     })
+    $(function() {
+            $("#program_date").datepicker({
+                // Set minimum date to today
+                minDate: 0,
+                // dateFormat: 'yy-mm-dd' // Set the date format if needed
+            });
+        });
 
     $(document).on("keydown", "form", function (event) {
         return event.key != "Enter";

@@ -133,6 +133,12 @@
 
         });
     }
+    $(function() {
+            $("#program_date").datepicker({
+                minDate: 0,
+                // dateFormat: 'yy-mm-dd' // Set the date format if needed
+            });
+        });
 
     $(document).on("keydown", "form", function(event) {
         return event.key != "Enter";

@@ -21,9 +21,13 @@
             '<br> Shift: ' + shiftLabel
         );
     },
-    dayClick: function (date, jsEvent, view) {
-        window.location.href = "{{ url('admin/hall_booking/create_bokking_form') }}?selectedDate=" + date.format('YYYY-MM-DD');
-    },
+    dayClick: function(date, jsEvent, view) {
+            var today = moment().startOf('day');
+            if (date.isBefore(today)) {
+                return false; 
+            }
+            window.location.href = "{{ url('admin/hall_booking/create_bokking_form') }}?selectedDate=" + date.format('YYYY-MM-DD');
+        },
     selectable: true,
     selectHelper: true,
     });

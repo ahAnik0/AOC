@@ -19,7 +19,7 @@ class XFrameOptionsMiddleware
         $response = $next($request);
 
         // Add the X-Frame-Options header to the response
-        $response->header('X-Frame-Options', 'DENY');
+        $response->header('X-Frame-Options', 'SAMEORIGIN,');
 
         return $response;
     }

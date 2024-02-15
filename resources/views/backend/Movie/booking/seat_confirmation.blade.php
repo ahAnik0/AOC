@@ -4,6 +4,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/backend/css/select2.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset("assets/frontend/movie/css/seat.css")}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset("assets/frontend/movie/css/style.css")}}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/css/jquery-ui.css') }}" />
+
     <style  nonce="{{ csp_nonce() }}">
         .st_seat_lay_row li {
             width: 40px;
@@ -58,7 +60,7 @@
                                 <div class="col-md-9">
                                     <div class="mb-3">
                                         <label class="col-form-label">Date</label>
-                                        <input class="form-control" type="date" name="date" id="date" value="{{request()->date}}">
+                                        <input class="form-control" type="text" name="date" id="date" value="{{ request()->date }}">
                                         <span id="error_movie_name" class="text-danger error_field"></span>
                                     </div>
                                 </div>
@@ -449,6 +451,8 @@
     <script src="{{asset('assets/backend/js/select2/select2.full.min.js')}}"></script>
     <script src="{{asset('assets/backend/js/select2/select2-custom.js')}}"></script>
     <script src="{{asset('assets/backend/js/notify/bootstrap-notify.min.js')}}"></script>
+    <script src="{{ asset('assets/backend/js/jquery.ui.min.js') }}"></script>
+
     {{--    <script src="{{asset("assets/frontend/movie/js/custom.js")}}"></script>--}}
     <script  nonce="{{ csp_nonce() }}">
         $(document).ready(function () {
@@ -466,5 +470,13 @@
             var date = $('#date').val()
             window.location.href = "{{url('admin/movie/seat_confirm_form')}}/" + {{request()->id}}+'/' + date
         }
+            <script src="{{ asset('assets/backend/js/jquery.ui.min.js') }}"></script>
+            $(function() {
+            $("#date").datepicker({
+                // Set minimum date to today
+                minDate: 0,
+                // dateFormat: 'yy-mm-dd' // Set the date format if needed
+            });
+        });
     </script>
 @endpush
