@@ -51,8 +51,8 @@
                     <th></th>
                     <th></th>
                     <th></th>
-                    <th></th>
-                    <th></th>
+                    <th class="bg-danger"></th>
+                    <th class="bg-info"></th>
                     <th></th>
                     <th></th>
                     <th></th>

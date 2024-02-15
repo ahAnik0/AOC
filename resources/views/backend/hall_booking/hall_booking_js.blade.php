@@ -21,7 +21,7 @@
                     })
                     .data()
                     .sum()
-                $(api.column(5).footer()).html(
+                $(api.column(8).footer()).html(
                     ' Tk ' + total + ' total'
                 );
             },
