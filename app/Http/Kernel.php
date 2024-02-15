@@ -45,8 +45,8 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\XFrameOptionsMiddleware::class,
             SecurityHeader::class,
             // \App\Http\Middleware\CspMiddleware::class,
-            // \Spatie\Csp\AddCspHeaders::class,
-            \App\Http\Middleware\ReferrerPolicyMiddleware::class,
+            \Spatie\Csp\AddCspHeaders::class,
+            // \App\Http\Middleware\ReferrerPolicyMiddleware::class,
             \App\Http\Middleware\DisableTraceMethod::class,
         ],
 
@@ -77,6 +77,6 @@ class Kernel extends HttpKernel
         'routeprifix' => dealWithPrefix::class,
         'admin' => AdminMiddleware::class,
         'user' => UserMiddleware::class,
-        'XSS'=> XSS::class,
+        'XSS' => XSS::class,
     ];
 }

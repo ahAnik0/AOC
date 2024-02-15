@@ -21,18 +21,20 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/css/responsive.css') }}">
     <link id="color" rel="stylesheet" href="{{ asset('assets/backend/css/color-1.css') }}" media="screen">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/css/toastr.min.css') }}">
-    <style  nonce="{{ csp_nonce() }}">
-    #img1{
-        margin-left: 100px;
-        height: 60px;
-    }
-    #stl_1{
-        font-size: 18px;
-        font-weight: bold
-    }
-    #stl_2{
-        display: none;
-    }
+    <style nonce="{{ csp_nonce() }}">
+        #img1 {
+            margin-left: 100px;
+            height: 60px;
+        }
+
+        #stl_1 {
+            font-size: 18px;
+            font-weight: bold
+        }
+
+        #stl_2 {
+            display: none;
+        }
     </style>
     @stack('css')
 </head>

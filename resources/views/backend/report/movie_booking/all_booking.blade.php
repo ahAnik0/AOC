@@ -26,6 +26,7 @@
                 <tr>
                     <th>SL</th>
                     <th>Member name</th>
+                    <th>Member Id</th>
                     <th>Member Type</th>
                     <th>Movie Name</th>
                     <th>Booked Seat</th>
@@ -43,9 +44,9 @@
                     <th></th>
                     <th></th>
                     <th></th>
+                    <th></th>
                     <th class="text-right">Total:</th>
                     <th class="bg-danger"></th>
-                    <th></th>
                     <th></th>
                 </tr>
                 </tfoot>
