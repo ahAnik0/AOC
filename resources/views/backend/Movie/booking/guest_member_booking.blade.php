@@ -2,6 +2,8 @@
 @section('title','Guest member booking')
 @push('css')
     <link rel="stylesheet" type="text/css" href="{{asset('assets/backend/css/select2.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/css/jquery-ui.css') }}" />
+
     <style  nonce="{{ csp_nonce() }}">
         .css_1{
             margin-bottom: 10px;margin-right: 10px
@@ -49,7 +51,9 @@
                                        value="{{old('address')}}">
                                 {!! $errors->first('address', '<p class="help-block text-danger">:message</p>') !!}
                             </div>
-                            <input type="date" class="form-control" name="date"  value="<?php echo date('Y-m-d'); ?>">
+                            {{-- <input type="date" class="form-control" name="date"  value="<?php echo date('Y-m-d'); ?>"> --}}
+                            <input class="form-control" type="text" name="date" id="date" value="<?php echo date('Y-m-d'); ?>">
+                               
                         </div>
                     </div>
                 </div>
@@ -66,5 +70,15 @@
     <script src="{{asset('assets/backend/js/select2/select2.full.min.js')}}"></script>
     <script src="{{asset('assets/backend/js/select2/select2-custom.js')}}"></script>
     <script src="{{asset('assets/backend/js/notify/bootstrap-notify.min.js')}}"></script>
+    <script src="{{ asset('assets/backend/js/jquery.ui.min.js') }}"></script>
+    <script>
+         $(function() {
+            $("#date").datepicker({
+                // Set minimum date to today
+                minDate: 0,
+                // dateFormat: 'yy-mm-dd' // Set the date format if needed
+            });
+        });
+    </script>
     {{--    @include('backend.staff_member.create_member_js')--}}
 @endpush

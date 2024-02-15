@@ -2,6 +2,8 @@
 @section('title','Book a program')
 @push('css')
     <link rel="stylesheet" type="text/css" href="{{asset('assets/backend/css/select2.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/css/jquery-ui.css') }}" />
+
     <style  nonce="{{ csp_nonce() }}">
         .list-group {
             max-height: 300px;
@@ -49,7 +51,8 @@
                                 
                                 <div class="form-group hidden_field">
                                     <label class="control-label required">Program Date</label>
-                                    <input class="form-control" type="date" name="date" id="program_date" value="{{$event_date->date}}">
+                                    <input class="form-control" type="text" name="date" id="program_date"
+                                        value="{{$event_date->date }}">
                                     <span id="error_date" class="text-danger error_field font-weight-bold"></span>
                                 </div>
                                 <div class="form-group">
@@ -110,5 +113,7 @@
     <script src="{{asset('assets/backend/js/select2/select2-custom.js')}}"></script>
     <script src="{{asset('assets/backend/js/sweetalert2.all.js')}}"></script>
     <script src="{{asset('assets/backend/js/tooltip-init.js')}}"></script>
+    <script src="{{ asset('assets/backend/js/jquery.ui.min.js') }}"></script>
+
     @include('backend.hall_booking.edit_booking.edit_booking_js')
 @endpush
