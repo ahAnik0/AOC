@@ -46,7 +46,7 @@ class Kernel extends HttpKernel
             SecurityHeader::class,
             // \App\Http\Middleware\CspMiddleware::class,
             \Spatie\Csp\AddCspHeaders::class,
-            \App\Http\Middleware\ReferrerPolicyMiddleware::class,
+            // \App\Http\Middleware\ReferrerPolicyMiddleware::class,
             \App\Http\Middleware\DisableTraceMethod::class,
         ],
 
