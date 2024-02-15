@@ -2,6 +2,7 @@
 
 namespace App\Support;
 
+use Spatie\Csp\Keyword;
 use Spatie\Csp\Directive;
 use Spatie\Csp\Policies\Basic;
 
@@ -25,7 +26,7 @@ class CustomPolicy extends Basic
             ->addDirective(Directive::FONT, 'https://fonts.bunny.net')
             ->addDirective(Directive::FONT, 'https://fonts.gstatic.com')
             // ->addDirective(Directive::FRAME, "*")
-            ->addDirective(Directive::IMG, 'self')
+            ->addDirective(Directive::IMG, [Keyword::SELF, 'data:'])
             ->addDirective(Directive::OBJECT, "self")
             ->addDirective(Directive::DEFAULT, "self");
             // ->addNonceForDirective(Directive::SCRIPT);

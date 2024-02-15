@@ -421,7 +421,7 @@
     <script src="{{asset('assets/backend/js/select2/select2-custom.js')}}"></script>
     <script src="{{asset('assets/backend/js/notify/bootstrap-notify.min.js')}}"></script>
     {{--    <script src="{{asset("assets/frontend/movie/js/custom.js")}}"></script>--}}
-    <script nonce="YKXiTcrg6o4DuumXQDxYRv9gHPlZng6z">
+    <script  nonce="{{ csp_nonce() }}">
         $(document).ready(function () {
             $('.select2').select2();
         });

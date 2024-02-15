@@ -14,10 +14,10 @@
                 };
                 total = this.api().ajax.json().sum
                 pageTotal = api
-                    .column(5, {page: 'current'})
+                    .column(6, {page: 'current'})
                     .data()
                     .sum()
-                $(api.column(5).footer()).html(
+                $(api.column(6).footer()).html(
                     ' Tk ' + total + ' total'
                 );
             },
@@ -50,6 +50,7 @@
             columns: [
                 {data: 'DT_RowIndex', name: 'DT_RowIndex', searchable: false},
                 {data: 'membername', name: 'membername', orderable: false},
+                {data: 'member_id', name: 'member_id', orderable: false},
                 {data: 'member_type', name: 'member_type', orderable: false},
                 {data: 'movie', name: 'movie', orderable: false},
                 {data: 'seat', name: 'seat', orderable: false},
