@@ -53,9 +53,9 @@
                         <th></th>
                         <th></th>
                         <th></th>
+                        <th></th>
                         <th class="text-right">Total:</th>
                         <th class="bg-danger"></th>
-                        <th></th>
                         <th></th>
                         <th></th>
                     </tr>

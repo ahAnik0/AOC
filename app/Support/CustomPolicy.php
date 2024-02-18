@@ -14,7 +14,7 @@ class CustomPolicy extends Basic
             ->addDirective(Directive::FORM_ACTION, 'self')
             ->addDirective(Directive::FRAME_ANCESTORS, 'self')
             ->addDirective(Directive::REPORT, 'none')
-            ->addDirective(Directive::SANDBOX, ['allow-forms', 'allow-modals', 'allow-orientation-lock', 'allow-popups', 'allow-scripts', 'allow-same-origin'])
+            ->addDirective(Directive::SANDBOX, ['allow-forms', 'allow-modals', 'allow-orientation-lock', 'allow-popups', 'allow-scripts', 'allow-same-origin', 'allow-popups-to-escape-sandbox', 'allow-top-navigation-by-user-activation'])
             ->addDirective(Directive::CONNECT, "'self'")
             ->addDirective(Directive::SCRIPT, "'self' 'unsafe-inline' https://www.googletagmanager.com")
             // ->addDirective(Directive::SCRIPT_ATTR, "'self' https://www.googletagmanager.com 'unsafe-inline'")

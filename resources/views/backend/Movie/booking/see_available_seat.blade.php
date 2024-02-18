@@ -448,7 +448,6 @@
         }
         $(function() {
             $("#date").datepicker({
-                // Set minimum date to today
                 minDate: 0,
                 // dateFormat: 'yy-mm-dd' // Set the date format if needed
             });

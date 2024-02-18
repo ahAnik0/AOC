@@ -20,7 +20,7 @@
                     })
                     .data()
                     .sum()
-                $(api.column(4).footer()).html(
+                $(api.column(5).footer()).html(
                     ' Tk ' + total + ' total'
                 );
             },

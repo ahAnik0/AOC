@@ -86,10 +86,10 @@
                         <th></th>
                         <th></th>
                         <th></th>
+                        <th></th>
+                        <th ></th>
                         <th id="stl_1">Total:</th>
-                        <th></th>
                         <th class="bg-danger"></th>
-                        <th></th>
                         <th></th>
                         <th></th>
                     </tr>

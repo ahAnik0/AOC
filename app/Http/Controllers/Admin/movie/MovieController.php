@@ -251,8 +251,8 @@ class MovieController extends Controller
 
     function seat_confirm_form($id, $date)
     {
-
-//        $today = Carbon::now()->toDateString();
+    //  $today = Carbon::now()->toDateString();
+    //  $member = MemberModel::where('id',$id)->first();
         $movie = MovieModel::where('start_date', '<=', $date)->where('end_date', '>=', $date)->get();
         return view('backend.Movie.booking.seat_confirmation', compact('movie'));
     }
