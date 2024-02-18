@@ -29,7 +29,7 @@ class CustomPolicy extends Basic
             ->addDirective(Directive::IMG, [Keyword::SELF, 'data:'])
             ->addDirective(Directive::OBJECT, "self")
             ->addDirective(Directive::DEFAULT, "self");
-            // ->addNonceForDirective(Directive::SCRIPT);
+        // ->addNonceForDirective(Directive::SCRIPT);
         // ->addNonceForDirective(Directive::STYLE);
     }
 }
